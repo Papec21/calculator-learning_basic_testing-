@@ -1,2 +1,8 @@
 import pytest
-from calculator import calculator
+from main import addition
+
+def test_addition():
+    assert addition(2, 3) == 5
+    assert addition(-1, 1) == 0
+    assert addition(0, 0) == 0
+    assert addition(-5, -5) == -10
