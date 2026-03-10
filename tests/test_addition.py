@@ -26,3 +26,5 @@ def test_addition_without_numbers():
         addition(None, None)
     with pytest.raises(TypeError):
         addition([], [])
+    with pytest.raises(TypeError):
+        addition({}, {})
