@@ -5,25 +5,26 @@ def check_if_numbers(num1, num2):
             num2 = float(num2)
         except ValueError:
             raise TypeError("Both inputs must be numbers")
+    return num1, num2
 
 
 def addition(num1, num2):
-    check_if_numbers(num1, num2)
+    num1, num2 = check_if_numbers(num1, num2)
     return num1 + num2
 
 
 def subtraction(num1, num2):
-    check_if_numbers(num1, num2)
+    num1, num2 = check_if_numbers(num1, num2)
     return num1 - num2
 
 
 def multiplication(num1, num2):
-    check_if_numbers(num1, num2)
+    num1, num2 = check_if_numbers(num1, num2)
     return num1 * num2
 
 
 def division(num1, num2):
-    check_if_numbers(num1, num2)
+    num1, num2 = check_if_numbers(num1, num2)
     if num2 == 0:
         raise ValueError("Cannot divide by zero")
     return num1 / num2
