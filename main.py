@@ -9,22 +9,18 @@ def check_if_numbers(num1, num2):
 
 
 def addition(num1, num2):
-    num1, num2 = check_if_numbers(num1, num2)
     return num1 + num2
 
 
 def subtraction(num1, num2):
-    num1, num2 = check_if_numbers(num1, num2)
     return num1 - num2
 
 
 def multiplication(num1, num2):
-    num1, num2 = check_if_numbers(num1, num2)
     return num1 * num2
 
 
 def division(num1, num2):
-    num1, num2 = check_if_numbers(num1, num2)
     if num2 == 0:
         raise ValueError("Cannot divide by zero")
     return num1 / num2
@@ -34,8 +30,13 @@ def calculator():
     print("Welcome to the calculator\n" "Choose an operation:\n" "1. Addition\n" "2. Subtraction\n" "3. Multiplication\n" "4. Division")
 
     operation = input("Enter the operation number: ")
-    num1 = float(input("Enter the first number: "))
-    num2 = float(input("Enter the second number: "))
+    num1 = input("Enter the first number: ")
+    num2 = input("Enter the second number: ")
+    try:
+        num1, num2 = check_if_numbers(num1, num2)
+    except TypeError as e:
+        print(f"Error: {e}")
+        return
 
     match operation:
         case '1':
