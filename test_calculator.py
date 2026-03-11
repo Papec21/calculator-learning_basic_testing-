@@ -30,3 +30,21 @@ def test_calculator_division():
             calculator()
             output = fake_result.getvalue()
             assert 'Result: 2.0' in output
+
+@pytest.mark.parametrize(
+        'inputs, expected_output',
+        [
+            (['1', '2', '3'], 'Result: 5.0'),      
+            (['1', '-5', '-5.5'], 'Result: -10.5'),
+            (['2', '10', '4'], 'Result: 6.0'),      
+            (['3', '2', '3'], 'Result: 6.0'),      
+            (['4', '6', '3'], 'Result: 2.0'),
+        ]
+)
+
+def test_calculator_multiple_operations(inputs, expected_output):
+    with patch('builtins.input', side_effect=inputs):
+        with patch('sys.stdout', new=StringIO()) as fake_result:
+            calculator()
+            output = fake_result.getvalue()
+            assert expected_output in output
