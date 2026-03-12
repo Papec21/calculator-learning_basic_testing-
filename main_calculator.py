@@ -1,5 +1,7 @@
 from calculator_database import save_equation
 
+
+
 def check_if_numbers(num1, num2):
     if not (isinstance(num1, (int, float)) and isinstance(num2, (int, float))):
         try:
@@ -31,7 +33,7 @@ def division(num1, num2):
 def calculator():
     print("Welcome to the calculator\n" "Choose an operation:\n" "1. Addition\n" "2. Subtraction\n" "3. Multiplication\n" "4. Division")
 
-    operation = input("Enter the operation number: ")
+    choosed_operation = input("Enter the operation number: ")
     num1 = input("Enter the first number: ")
     num2 = input("Enter the second number: ")
     try:
@@ -40,19 +42,23 @@ def calculator():
         print(f"Error: {e}")
         return
 
-    match operation:
+    match choosed_operation:
         case '1':
+            operation = 'addition'
             result = addition(num1, num2)
             print(f"Result: {result}")
         case '2':
-            result = addition(num1, num2)
+            operation = 'subtraction'
+            result = subtraction(num1, num2)
             print(f"Result: {result}")
         case '3':
-            result = addition(num1, num2)
+            operation = 'multiplication'
+            result = multiplication(num1, num2)
             print(f"Result: {result}")
         case '4':
+            operation = 'division'
             try:
-                result = addition(num1, num2)
+                result = division(num1, num2)
                 print(f"Result: {result}")
             except ValueError as e:
                 print(f"Error: {e}")
@@ -63,3 +69,4 @@ def calculator():
 
 
 # calculator()
+calculator()
