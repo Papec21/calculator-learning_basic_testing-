@@ -1,7 +1,6 @@
 from calculator_database import save_equation
 
 
-
 def check_if_numbers(num1, num2):
     if not (isinstance(num1, (int, float)) and isinstance(num2, (int, float))):
         try:
